@@ -2,6 +2,7 @@ package com.example.api.bazar.service;
 
 import com.example.api.bazar.model.Producto;
 import com.example.api.bazar.model.Venta;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -13,7 +14,7 @@ public interface IVentaService {
     
     public List<Producto> getProductsOfVentaById(Long id);
     
-    public String amountAndSalesQuantityOfTheDay();
+    public String amountAndSalesQuantityOfTheDay(LocalDate fecha);
     
     public void saveVenta(Venta venta);
     
