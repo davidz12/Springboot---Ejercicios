@@ -13,6 +13,8 @@ public interface IVentaService {
     public List<Venta> findAllVentas();
     
     public List<Producto> getProductsOfVentaById(Long id);
+
+    public String ventaMostExpensive();
     
     public String amountAndSalesQuantityOfTheDay(LocalDate fecha);
     

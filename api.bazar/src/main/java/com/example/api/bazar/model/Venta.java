@@ -1,5 +1,6 @@
 package com.example.api.bazar.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Venta {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long codigo_venta;
-    
+    @Column(columnDefinition = "DATE")
     private LocalDate fecha_venta;
     private Double total;
     

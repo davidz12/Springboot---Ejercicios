@@ -43,7 +43,7 @@ public class ProductoController {
         productoServ.editProducto(producto);
     }
 
-    @GetMapping("/prodcutos/falta_stock")
+    @GetMapping("/productos/falta_stock")
     public List<Producto> lessThanFiveProducts() {
         return productoServ.lessThanFiveProducts();
     }
