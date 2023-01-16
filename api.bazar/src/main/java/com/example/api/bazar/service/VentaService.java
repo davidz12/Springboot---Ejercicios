@@ -28,7 +28,18 @@ public class VentaService implements IVentaService{
 
     @Override
     public void saveVenta(Venta venta) {
+        calculatePrice(venta);
         ventaRepo.save(venta);
+    }
+    
+    public void calculatePrice(Venta venta){
+        //calculo el total de los productos, asi no lo tengo que poner a mano en el JSON
+        List<Producto> listaProductos = venta.getListaProductos();
+        Double totalPrice = 0.0;
+        for (Producto p : listaProductos) {
+            totalPrice = totalPrice + p.getCosto();
+        }
+        venta.setTotal(totalPrice);
     }
 
     @Override
@@ -57,11 +68,10 @@ public class VentaService implements IVentaService{
         List<Venta> listaVentas = this.findAllVentas();
         List<Venta> listaVentasSegunFecha = new ArrayList<>();
         
-        //!!FIJARME COMO PUEDO OPTIMIZAR ESTE CODIGO
         
         //Guardo en una lista aparte, las ventas que tienen la misma fecha que el paremetro.
         for(Venta venta : listaVentas) {
-            if(venta.getFecha_venta() == fecha) {
+            if(venta.getFecha_venta().equals(fecha)) {
                 listaVentasSegunFecha.add(venta);
             }
         }
@@ -72,8 +82,8 @@ public class VentaService implements IVentaService{
             ventasFecha += 1;
         }
         
-        return " y la suma del monto es de: " 
-                + "La cantidad de ventas de la fecha fueron: " + ventasFecha + sumaMonto;
+        return " La cantidad de ventas de la fecha fueron: " + ventasFecha
+                + ", la suma total de las ventas es de: " + sumaMonto;
     }
 
     @Override
@@ -102,7 +112,4 @@ public class VentaService implements IVentaService{
                 ", nombre de cliente: " + ventaCliente.getNombre_Cliente() +
                 ", apellido de cliente: " + ventaCliente.getApellido_cliente();
     }
-    
-    
-    
 }

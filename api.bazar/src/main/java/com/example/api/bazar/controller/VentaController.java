@@ -6,13 +6,11 @@ import com.example.api.bazar.service.IVentaService;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -51,12 +49,12 @@ public class VentaController {
         return ventaServ.getProductsOfVentaById(codigo_venta);
     }
     
-    @GetMapping("/ventas/dia")
-    public String amountAndSalesQuantityOfTheDay(@RequestParam LocalDate fecha){
+    @GetMapping("/ventas/dia/{fecha}")
+    public String amountAndSalesQuantityOfTheDay(@PathVariable LocalDate fecha){
         return ventaServ.amountAndSalesQuantityOfTheDay(fecha);
     }
     
-    @GetMapping("/ventas/masCara")
+    @GetMapping("/ventas/mayor_venta")
     public String ventaMostExpensive() {
         return ventaServ.ventaMostExpensive();
     }
