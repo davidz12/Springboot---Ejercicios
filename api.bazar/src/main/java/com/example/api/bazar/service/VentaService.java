@@ -68,7 +68,6 @@ public class VentaService implements IVentaService{
         List<Venta> listaVentas = this.findAllVentas();
         List<Venta> listaVentasSegunFecha = new ArrayList<>();
         
-        
         //Guardo en una lista aparte, las ventas que tienen la misma fecha que el paremetro.
         for(Venta venta : listaVentas) {
             if(venta.getFecha_venta().equals(fecha)) {
