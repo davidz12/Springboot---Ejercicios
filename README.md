@@ -1,8 +1,7 @@
 # Springboot---Ejercicios
 
-- API'S REST realizadas con Java - Spring.
+- API'S REST realizadas con Java - Spring - Hibernate.
 
-#Dependencias:
 
 - Lombok
 - Spring Web 
