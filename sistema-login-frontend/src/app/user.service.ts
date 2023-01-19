@@ -18,4 +18,7 @@ export class UserService {
     return this.httpClient.get<Usuario[]>(`${this.baseUrl}`);
   }
 
+  registerUser(user:Usuario):Observable<Object>{
+    return this.httpClient.post("http://localhost:8080/users/users", user);
+  }
 }
