@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Registro de usuario</h3>
-    <form (ngSubmit) = "onSumbit()">
+    <form (ngSubmit) = "onSumbit()" #userForm = 'ngForm'>
         <div class="form-group">
             <label>Nombre : </label>
             <input type="text" 
@@ -9,11 +9,14 @@
             [(ngModel)] = "user.name"
             name = "name"
             requird
-            minlength="4"
-            maxlength="10"
-            placeholder="Digite su nombre"
-            #nombre = "ngModel"
+            placeholder="Escriba su nombre"
+            #name = "ngModel"
             >
+            <div class="alert alert-danger" *ngIf= "name.invalid && (name.dirty || name.touched)">
+                <div *ngIf= "name.errors?.['requird']">
+                    Por favor escriba su nombre
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Apellido : </label>
@@ -22,7 +25,15 @@
             id = "lastName"
             [(ngModel)] = "user.lastName"
             name = "lastName"
+            requird
+            placeholder="Escriba su Apellido"
+            #lastName = "ngModel"
             >
+            <div class="alert alert-danger" *ngIf= "lastName.invalid && (lastName.dirty || lastName.touched)">
+                <div *ngIf= "lastName.errors?.['requird']">
+                    Por favor escriba su apellido 
+                </div>
+            </div>
         </div>
         <div class="form-group"> 
             <label>Email : </label>
@@ -31,9 +42,21 @@
             id = "email" 
             [(ngModel)] = "user.email"
             name = "email"
+            requird
+            placeholder="Escriba su correo"
+            #email = "ngModel"
+            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
             >
+            <div class="alert alert-danger" *ngIf= "email.invalid && (email.dirty || email.touched)">
+                <div *ngIf= "email.errors?.['requird']">
+                    Por favor escriba su email
+                </div>
+                <div *ngIf= "email.errors?.['pattern']">
+                    Por favor escriba su email con el siguiente formato : user001@hotmail.com
+                </div>
+            </div>
         </div>
 
-        <button class="btn btn-success">Guardar</button>
+        <button class="btn btn-success" style="margin-top: 10px;" [disabled]= "!userForm.form.valid">Guardar</button>
     </form>
 </div>    

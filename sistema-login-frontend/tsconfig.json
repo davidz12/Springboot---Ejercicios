@@ -30,9 +30,9 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
-    "strictNullChecks":false,
-    "strictFunctionTypes":false,
-    "strictBindCallApply":false,
-    "strictPropertyInitialization":false
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": false,
+    "strictPropertyInitialization": false
   }
 }
