@@ -4,7 +4,7 @@ Sistema Login desarrollado con Java, spring boot del lado del backend y Angular 
 
 ## :hammer: Funcionalidades del proyecto
 
-Lo realizado en este proyecto consiste en un CRUD : Create, Read, Update, Delete. Todo se carga en una base de datos, y lo podemos ver reflejado en el frontend.
+Lo realizado en este proyecto consiste en un CRUD : Create, Read, Update, Delete. Todo se carga en una base de datos, y lo podemos ver reflejado en el frontend.  
 Es un sistema donde a traves de una API se le manda consultas para que traiga los datos de la base de datos, la actualice, elimine o cree un usuario.
 
 - `Crear un usuario`: Permite crear un nuevo usuario en la base de datos.
