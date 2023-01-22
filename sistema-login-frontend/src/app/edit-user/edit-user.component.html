@@ -10,6 +10,7 @@
             name = "name"
             #name = "ngModel"
             requird
+            readonly
             >
             <div class="alert alert-danger" *ngIf= "name.invalid && (name.dirty || name.touched)">
                 <div *ngIf= "name.errors?.['requird']">
@@ -26,6 +27,7 @@
             name = "lastName"
             #lastName = "ngModel"
             requird
+            readonly
             >
             <div class="alert alert-danger" *ngIf= "lastName.invalid && (lastName.dirty || lastName.touched)">
                 <div *ngIf= "lastName.errors?.['requird']">
