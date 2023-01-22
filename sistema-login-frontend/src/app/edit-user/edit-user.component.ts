@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchAll } from 'rxjs';
+import swal from 'sweetalert2';
 import { UserService } from '../user.service';
 import { Usuario } from '../usuario';
 
@@ -29,14 +30,28 @@ export class EditUserComponent {
   }
 
   onSumbit(){
+    swal({
+      title: "¿Estas seguro que deseas editar este usuario?",
+      text: "Confirma si deseas editar el usuario",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      confirmButtonText: "Si, editar",
+      cancelButtonText: "No, no editar",
+      confirmButtonClass: "btn btn-success",
+      cancelButtonClass: "btn btn-danger",
+      buttonsStyling: true
+    }).then((result) => { if (result.value){
     this.userService.editUser(this.id,this.user).subscribe(dato => {
       console.log(dato);
       this.goToTheUserList();
+      swal(
+        "Usuario editado",
+        "El usuario ha sido editado con exito",
+        'success'
+      );
     });
-  }
-  
+   }
+  })
+  }  
 }
-
-
-
-
