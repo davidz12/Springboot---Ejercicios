@@ -28,3 +28,5 @@ El FrontEnd con angular se ejecuta, colocando en la terminal __"ng serve -o"__.
 - Spring Boot
 - Angular
 - SweetAlert2  
+- MySQL
+- Hibernate
