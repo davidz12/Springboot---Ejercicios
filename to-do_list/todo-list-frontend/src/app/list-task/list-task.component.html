@@ -1,34 +1,38 @@
-
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Lista de tareas</h3>
-    <form (ngSubmit)= "onSumbit()" #userForm='ngForm'>
+    <form (ngSubmit)="onSumbit()" #userForm='ngForm'>
         <div class="form-group">
             <label>Tarea : </label>
-            <input type="text" class="form-control" id="nameTask" [(ngModel)]= "task.name" name="nameTask" requird
+            <input type="text" class="form-control" id="nameTask" [(ngModel)]="task.name" name="nameTask" requird
                 placeholder="Escriba su tarea" #name="ngModel">
         </div>
         <div class="form-group">
             <label>Descripcion : </label>
-            <input type="text" class="form-control" id="taskDescription" [(ngModel)]= "task.description"
+            <input type="text" class="form-control" id="taskDescription" [(ngModel)]="task.description"
                 name="taskDescription" placeholder="Describa la tarea" #lastName="ngModel">
 
-                <button class="btn btn-success" style="margin-top: 10px;" style = "margin-bottom: 10%; margin-top: 10px;">Guardar</button>
+        </div>
+        <button class="btn btn-success" style="margin-top: 10px;"
+            style="margin-bottom: 10%; margin-top: 10px;">Guardar</button>
+    </form>
 
-            <table class="table table-striped">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor= "let task of tasks">
-                        <td>{{task.name}}</td>
-                        <td>{{task.description}}</td>
-                        <td>
-                            <button (click)= "deleteTask(task.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{task.name}}</td>
+                <td>{{task.description}}</td>
+                <td>
+                    <button (click)="deleteTask(task.id)" class="btn btn-danger"
+                        style="margin-left : 10px">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
